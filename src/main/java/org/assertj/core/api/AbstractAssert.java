@@ -12,6 +12,9 @@
  */
 package org.assertj.core.api;
 
+import static org.assertj.core.util.Lists.newArrayList;
+import static org.assertj.core.util.Strings.formatIfArgs;
+
 import java.util.Comparator;
 import java.util.List;
 
@@ -26,9 +29,6 @@ import org.assertj.core.internal.Objects;
 import org.assertj.core.presentation.Representation;
 import org.assertj.core.util.CheckReturnValue;
 import org.assertj.core.util.VisibleForTesting;
-
-import static org.assertj.core.util.Lists.newArrayList;
-import static org.assertj.core.util.Strings.formatIfArgs;
 
 /**
  * Base class for all assertions.
@@ -542,11 +542,6 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
     AbstractAssert.customRepresentation = customRepresentation;
   }
 
-  /**
-   * TODO
-   * @param other
-   * @return
-   */
   public SELF hasSameHashCodeAs(Object other) {
     objects.assertHasSameHashCodeAs(info, actual, other);
     return myself;
