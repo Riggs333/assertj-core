@@ -12,6 +12,19 @@
  */
 package org.assertj.core.internal;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.*;
+
+import org.assertj.core.api.AssertionInfo;
+import org.assertj.core.error.BasicErrorMessageFactory;
+import org.assertj.core.internal.DeepDifference.Difference;
+import org.assertj.core.util.VisibleForTesting;
+import org.assertj.core.util.introspection.FieldSupport;
+import org.assertj.core.util.introspection.IntrospectionError;
+import org.assertj.core.util.introspection.PropertyOrFieldSupport;
+import org.assertj.core.util.introspection.PropertySupport;
+
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static org.assertj.core.error.ShouldBeEqual.shouldBeEqual;
@@ -44,26 +57,6 @@ import static org.assertj.core.util.Lists.newArrayList;
 import static org.assertj.core.util.Preconditions.checkArgument;
 import static org.assertj.core.util.Preconditions.checkNotNull;
 import static org.assertj.core.util.Sets.newLinkedHashSet;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import org.assertj.core.api.AssertionInfo;
-import org.assertj.core.api.WritableAssertionInfo;
-import org.assertj.core.error.BasicErrorMessageFactory;
-import org.assertj.core.internal.DeepDifference.Difference;
-import org.assertj.core.util.VisibleForTesting;
-import org.assertj.core.util.introspection.FieldSupport;
-import org.assertj.core.util.introspection.IntrospectionError;
-import org.assertj.core.util.introspection.PropertyOrFieldSupport;
-import org.assertj.core.util.introspection.PropertySupport;
 
 /**
  * Reusable assertions for {@code Object}s.
